@@ -41,3 +41,4 @@ int main() {
 	}
 	return 0;
 }
+// https://prnt.sc/0pdUwtITfAdN
