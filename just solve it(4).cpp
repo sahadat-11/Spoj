@@ -15,3 +15,4 @@ int main() {
   cout << r / lc - (l - 1) / lc << "\n";
   return 0;
 }
+// https://prnt.sc/cD7o_IMYXBop
