@@ -11,7 +11,7 @@ int main() {
       int x; cin >> x;
       cnt[x]++;
    }
-   for(int i = 1; i < N; i++) {
+   for(int i = 1; i < N; i++) {n
       for(int j = i; j < N; j += i) {
          mul[i] += cnt[j];
       }
