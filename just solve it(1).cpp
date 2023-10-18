@@ -47,3 +47,5 @@ int main() {
    return 0;
 }
 // complexity O(nlogn)
+// https://prnt.sc/aFD4XumOTJCW
+// https://prnt.sc/q2YYUbsXoEh7 
