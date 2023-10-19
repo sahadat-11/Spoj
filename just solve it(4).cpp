@@ -16,3 +16,4 @@ int main() {
   return 0;
 }
 // https://prnt.sc/cD7o_IMYXBop
+// https://prnt.sc/Xqtlw7dCPh0p

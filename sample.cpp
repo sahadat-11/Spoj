@@ -2,46 +2,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long 
-const int N = 1e5 + 7;
-int spf[N];
+const int N = 1e7 + 7;
+bitset<N> f;
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-  for(int i = 1; i < N; i++) spf[i] = i;
+  f[0] = f[1] = true;
+   for(int i = 4; i <= N; i += 2) f[i] = true;
+   for(int i = 3; i * i <= N; i += 2) {
+      if(!f[i]) {
+         for(int j = i * i; j <= N; j += 2 * i) f[j] = true;
+      }
+   }
+   vector<int> prime;
    for(int i = 2; i < N; i++) {
-     if(spf[i] == i) {
-        for(int j = i; j < N; j += i) {
-          spf[j] = min(spf[j], i);
-        }
-     }
+   	 if(!f[i]) prime.push_back(i);
    }
-   map<ll, vector<ll>> mp;
-   for(ll i = 1; i <= 100000; i++) {
-   	 ll x = i;
-   	 ll div = 1;
-  	 while(x > 1) {
-  		ll p = spf[x];
-  		ll exp = 0;
-  		while(x %  p == 0) {
-  			exp++;
-  			x /= p;
-  		}
-  		div *= (2 * exp + 1);
-  	 }
-  	 mp[div].push_back(i * i);
+   int t, cs = 0; cin >> t;
+   while(t--) {
+   	 int n; cin >> n;
+   	 cout << "Case " << ++cs << ": ";
+   	 int cnt = 0;
+   	 for(auto p : prime) {
+   	 	if(p > n) break;
+   	 	int b = n - p;
+   	 	if(!f[b] and p <= b) cnt++;
+   	 }
+   	 cout << cnt << "\n";
    }
-   // for(auto u : mp[3]) {
-   	// cout << u << "\n";
-   // }
-  int t; cin >> t;
-  while(t--) {
-  	ll k, l, r; cin >> k >> l >> r;
-  	//ll x = sqrtl(r);
-  	//auto v = mp[k];
-  	//for(auto u : v) cout << u << endl;
-  	ll ans = 0;
-  	ans = upper_bound(mp[k].begin(), mp[k].end(), r) - lower_bound(mp[k].begin(), mp[k].end(), l);
-  	cout << ans << "\n";
-  }
   return 0;
 }
