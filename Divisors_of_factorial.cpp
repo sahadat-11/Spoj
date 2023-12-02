@@ -41,6 +41,8 @@ int main() {
  }
     return 0;
 }
+
+
 // approach 2: 
 //In The Name of ALLAH
 #include <bits/stdc++.h>
