@@ -11,7 +11,7 @@ int main() {
       string s; cin >> s;
       while(q--) {
          int l, r; cin >> l >> r;
-         l--; r--;
+         l--; r--; // o indexing
          int cnt[26] = {0};
          for(int i = l; i <= r; i++) {
             cnt[s[i] - 'a']++;
