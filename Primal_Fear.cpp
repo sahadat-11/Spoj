@@ -97,3 +97,61 @@ int main() {
    }
    return 0; 
 }
+
+
+//In The Name of ALLAH
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 1e6 + 7,  mod = 1e9 + 7;
+#define int long long
+bitset<N> f;
+int pre_cal[N];
+bool has_zero(int n) {
+   while(n) {
+     if(n % 10 == 0) return true;
+     n /= 10;
+   }
+   return false;
+}
+bool is_prime(int n) {
+   string s = to_string(n);
+   int sz = s.size();
+   for(int i = 0; i < sz; i++) {
+     string x = s.substr(i, sz);
+     int xx = stoi(x);
+     //cout << x << " " << xx << endl;
+     if(f[xx]) return false;
+   }
+   return true;
+}
+bool isvalid(int n) {
+   if(f[n]) return false;
+   if(has_zero(n)) return false;
+   if(!is_prime(n)) return false;
+   return true;
+}
+void solve() {
+   int n; cin >> n;
+   cout << pre_cal[n] << "\n";
+}
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  f[0] = f[1] = true; 
+  for(int i = 4; i <= N; i += 2) f[i] = true;
+  for(int i = 3; i * i <= N; i += 2) {
+    if(!f[i]) {
+    for(int j = i * i; j <= N; j += 2 * i) f[j] = true;
+   } // i*i because (i+i) always a even number large from 2, which is already cut in 2 er condition
+  }
+  for(int i = 2; i < N; i++) {
+   pre_cal[i] = pre_cal[i - 1] + isvalid(i);
+  }
+  //for(int i = 1; i <= 10; i++) cout << pre_cal[i] << "\n";
+  int t = 1; 
+  cin >> t;
+  while(t--) {
+    solve();
+  }
+  return 0;
+}

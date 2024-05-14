@@ -41,7 +41,6 @@ int main() {
 	}
 	return 0;
 }
-// https://prnt.sc/0pdUwtITfAdN
 
 // approach 2:
 
@@ -92,3 +91,6 @@ int main() {
   }
   return 0;
 }
+
+
+// https://prnt.sc/0pdUwtITfAdN
