@@ -1,0 +1,1 @@
+{"name":"Local: HOMO","url":"e:\\Spoj\\HOMO.cpp","tests":[{"id":1720445919297,"input":"11\ninsert 1\ninsert 2\ninsert 1\ninsert 4\ndelete 1\ndelete 3\ndelete 2\ndelete 1\ninsert 4\ndelete 4\ndelete 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Spoj\\HOMO.cpp","group":"local","local":true}
